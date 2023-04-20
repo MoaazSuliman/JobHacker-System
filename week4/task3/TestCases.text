@@ -1,0 +1,39 @@
+
+
+Library:
+	// Invalid Code becuase code is empty Then system will exit.
+		Library library = new Library("lib1", "", new ArrayList<>());
+	
+	// Invalid Name becuase name is empty Then system will exit.
+		Library library = new Library("", "131250", new ArrayList<>());
+
+
+Book : 
+	// Invalid id becuase id is less than or equal 0
+	Book book1 = new Book(-11, "Java Developer", "Moaaz Suliman", "3.1", false);
+	// Invalid book title becuase there are no name just spaces.
+	Book book1 = new Book(1, " ", "Moaaz Suliman", "3.1", false);
+
+
+Book && Library :
+		// add book1 success.
+		// Error because we remove book2 without being in this library.
+		Library library = new Library("Programming", "131220", new ArrayList<>());
+		Book book1 = new Book(1, "Java Developer", "Moaaz Suliman", "3.1", false);
+		Book book2 = new Book(2, "Java Developer", "Moaaz Suliman", "3.1", false);
+
+		library.addNewBook(book1);
+		library.removeBook(book2);
+
+		// add some books to library and get avialble books from this lib.
+		// it will return book1 , book2 because they are avilable
+		// it will not return book3 because it isn't avilable.
+		Library library = new Library("Programming", "131220", new ArrayList<>());
+		Book book1 = new Book(1, "Java Developer", "Moaaz Suliman", "3.1", true);
+		Book book2 = new Book(2, "React Developer", "Mohamed Suliman", "3.1", true);
+		Book book3 = new Book(3, "UI/UX Developer", "Moaaz Suliman", "3.1", false);
+
+		library.addNewBook(book1);
+		library.addNewBook(book2);
+		library.addNewBook(book3);
+		System.out.println(library.getAvilableBooksForLibray());
